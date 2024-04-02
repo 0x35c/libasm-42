@@ -1,6 +1,7 @@
 #include "includes/libasm.h"
 #include <stdio.h>
 #include <string.h>
+#include <unistd.h>
 
 int main(void)
 {
@@ -18,10 +19,10 @@ int main(void)
 	printf("str: %s - cpy: %s - ft_strcmp(str, cpy): %d\n", str, cpy,
 	       ft_strcmp(str, cpy));
 
-	// write
-	ft_write(1, str, ft_strlen(str));
-
-	// read
+	// read/write
+	char buf[10];
+	ft_read(0, buf, 10);
+	ft_write(1, buf, ft_strlen(buf));
 
 	// strdup
 
