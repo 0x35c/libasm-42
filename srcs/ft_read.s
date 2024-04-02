@@ -5,9 +5,6 @@
 global ft_read:function
 
 ft_read:
-	push	rbp
-	mov		rbp, rsp
 	mov		rax, 0 ; syscall read
 	syscall
-	pop rbp
 	ret

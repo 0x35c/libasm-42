@@ -2,9 +2,13 @@
 ;-----------------------------------------------------------------------
 ; x86_64	rax		rax	 	 rdi	rsi		rdx		r10		r8		r9
 
-global ft_strcpy:function
+extern _malloc
+extern ft_strcpy
+extern ft_strlen
 
-ft_strcpy:
+global ft_strdup:function
+
+ft_strdup:
 	xor		rcx, rcx
 	cmp		rdi, 0 ; check if dest is not NULL
 	jz		.RETURN

@@ -5,8 +5,6 @@
 global ft_strlen:function
 
 ft_strlen:
-	push	rbp
-	mov		rbp, rsp
 	xor		rcx, rcx
 .LOOP:
 	cmp		byte [rdi + rcx], 0
@@ -15,5 +13,4 @@ ft_strlen:
 	jmp 	.LOOP
 .RETURN:
 	mov 	rax, rcx
-	pop 	rbp
 	ret

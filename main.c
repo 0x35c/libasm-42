@@ -5,6 +5,7 @@
 
 int main(void)
 {
+	printf("test\n");
 	// strlen
 	char str[5] = "test";
 	printf("ft_strlen(str): %ld\n", ft_strlen(str));

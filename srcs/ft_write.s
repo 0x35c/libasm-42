@@ -5,9 +5,6 @@
 global ft_write:function
 
 ft_write:
-	push	rbp
-	mov		rbp, rsp
 	mov		rax, 1 ; syscall write
 	syscall
-	pop rbp
 	ret

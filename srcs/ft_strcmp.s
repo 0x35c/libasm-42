@@ -5,8 +5,6 @@
 global ft_strcmp:function
 
 ft_strcmp:
-	push	rbp
-	mov		rbp, rsp
 	xor		rcx, rcx
 .LOOP:
 	mov		dl, byte [rsi + rcx]
@@ -15,10 +13,7 @@ ft_strcmp:
 	inc		rcx
 	jmp		.LOOP
 .RETURN:
-	; mov		cl, byte [rdi + rcx] ; cpy s1[i] into cl (tmp)
-	; sub		cl, dl ; sub s2[i] to s1[i]
-	movsx	rax, byte [rdi + rcx] ; cpy result of sub and resize it
+	movsx	rax, byte [rdi + rcx]
 	movsx	rcx, byte [rsi + rcx]
-	sub		rax, rcx
-	pop		rbp
+	sub		rax, rcx ; s1[i] - s2[i]
 	ret
