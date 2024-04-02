@@ -19,6 +19,7 @@ int main(void)
 	       ft_strcmp(str, cpy));
 
 	// write
+	ft_write(1, str, ft_strlen(str));
 
 	// read
 
