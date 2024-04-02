@@ -1,6 +1,5 @@
+#include "includes/libasm.h"
 #include <stdio.h>
-
-size_t ft_strlen(const char *str);
 
 int main(void) {
   const char *str = "test\n";
