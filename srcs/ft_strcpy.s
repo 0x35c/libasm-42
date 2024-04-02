@@ -17,7 +17,7 @@ ft_strcpy:
 	mov		[rdi + rcx], dl ; cpy src[i] to dest[i]
 	inc rcx
 	jmp .LOOP
-.NULLBYTE
+.NULLBYTE:
 	mov	byte [rdi + rcx], 0
 .RETURN:
 	mov rax, rdi
