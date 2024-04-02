@@ -12,33 +12,28 @@
 
 NAME = libasm.a
 
-SRCS =	\
+SRCS =	ft_strlen.s\
 	
-HDR_DIR := includes/
-
 CC = nasm
 
-CFLAGS = -Wall -Wextra -Werror
+FLAGS = -f elf64
 
-OBJS := $(addprefix objs/, $(SRCS:.c=.o))
+OBJS := $(addprefix objs/, $(SRCS:.s=.o))
 
 all: $(NAME) 
 
 $(NAME): $(OBJS)
 	ar rc $(NAME) $(OBJS)
-	echo "$(NAME) compiled"
 
-objs/%.o: srcs/%.c
-	mkdir -p $(@D)
-	$(CC) $(CFLAGS) -c $< -o $@ -I$(HDR_DIR)
+objs/%.o: srcs/%.s
+	@mkdir -p $(@D)
+	$(CC) $(FLAGS) $< -o $@
 
 clean:
-	rm -rf objs/
-	echo "$(NAME) objects removed"
+	@rm -rf objs/
 
 fclean: clean
-	rm -f $(NAME)
-	echo "$(NAME) binary removed"
+	@rm -f $(NAME)
 
 re: fclean all
 
