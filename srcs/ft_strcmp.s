@@ -4,7 +4,7 @@
 
 global ft_strcmp:function
 
-ft_strcmp:
+ft_strcmp: ; int ft_strcmp(const char *s1, const char *s2)
 	xor		rcx, rcx
 .LOOP:
 	mov		dl, byte [rsi + rcx]

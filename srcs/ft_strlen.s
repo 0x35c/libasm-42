@@ -4,7 +4,7 @@
 
 global ft_strlen:function
 
-ft_strlen:
+ft_strlen: ; size_t ft_strlen(const char *str)
 	xor		rcx, rcx
 .LOOP:
 	cmp		byte [rdi + rcx], 0

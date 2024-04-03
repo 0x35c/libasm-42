@@ -4,7 +4,7 @@
 
 global ft_strcpy:function
 
-ft_strcpy:
+ft_strcpy: ; char *ft_strcpy(char *dest, const char *src)
 	xor		rcx, rcx
 	cmp		rdi, 0 ; check if dest is not NULL
 	jz		.RETURN

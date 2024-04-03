@@ -21,7 +21,7 @@ SRCS =	ft_strlen.s\
 	
 CC = nasm
 
-FLAGS = -f elf64 -g
+FLAGS = -felf64 -g
 
 OBJS := $(addprefix objs/, $(SRCS:.s=.o))
 

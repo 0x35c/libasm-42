@@ -2,25 +2,19 @@
 ;-----------------------------------------------------------------------
 ; x86_64	rax		rax	 	 rdi	rsi		rdx		r10		r8		r9
 
-extern _malloc
+global	ft_strdup:function
+
+extern malloc
 extern ft_strcpy
 extern ft_strlen
 
-global ft_strdup:function
-
-ft_strdup:
-	xor		rcx, rcx
-	cmp		rdi, 0 ; check if dest is not NULL
-	jz		.RETURN
-.LOOP:
-	cmp		byte [rsi + rcx], 0
-	jz		.NULLBYTE ; label to get terminate the str with a '\0'
-	mov		dl, [rsi + rcx] ; cpy src[i] in dl register (8 bits/1 byte/1 char)
-	mov		[rdi + rcx], dl ; cpy src[i] to dest[i]
-	inc rcx
-	jmp .LOOP
-.NULLBYTE:
-	mov	byte [rdi + rcx], 0
-.RETURN:
-	mov rax, rdi
+ft_strdup: ; char *ft_strdup(const char *s)
+	push	rdi
+	call	ft_strlen
+	mov		rdi, rax ; we put the return of strlen in the first param of _malloc
+	inc		rdi
+	call	malloc wrt ..plt
+	pop		rsi
+	mov		rdi, rax
+	call	ft_strcpy
 	ret
