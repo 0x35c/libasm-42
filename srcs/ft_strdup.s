@@ -2,28 +2,18 @@
 ;-----------------------------------------------------------------------
 ; x86_64	rax		rax	 	 rdi	rsi		rdx		r10		r8		r9
 
-global	ft_strdup:function
+global	_ft_strdup
+extern _malloc
+extern _ft_strcpy
+extern _ft_strlen
 
-extern malloc
-extern ft_strcpy
-extern ft_strlen
-extern error
-
-ft_strdup: ; char *ft_strdup(const char *s)
+_ft_strdup: ; char *_ft_strdup(const char *s)
 	push	rdi
-	call	ft_strlen
+	call	_ft_strlen
+	inc		rax
 	mov		rdi, rax ; we put the return of strlen in the first param of _malloc
-	inc		rdi
-	call	malloc wrt ..plt
-	jc		.ERROR
-	pop		rsi
+	call	_malloc
 	mov		rdi, rax
-	call	ft_strcpy
-	ret
-
-.ERROR:
-	mov		r11, rax
-	call	error wrt ..plt
-	mov		[rax], r11
-	mov		rax, -1
+	pop		rsi
+	call	_ft_strcpy
 	ret

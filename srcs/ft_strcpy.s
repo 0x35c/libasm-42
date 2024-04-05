@@ -2,9 +2,9 @@
 ;-----------------------------------------------------------------------
 ; x86_64	rax		rax	 	 rdi	rsi		rdx		r10		r8		r9
 
-global ft_strcpy:function
+global _ft_strcpy
 
-ft_strcpy: ; char *ft_strcpy(char *dest, const char *src)
+_ft_strcpy: ; char *_ft_strcpy(char *dest, const char *src)
 	xor		rcx, rcx
 	cmp		rdi, 0 ; check if dest is not NULL
 	jz		.RETURN

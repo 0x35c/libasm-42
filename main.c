@@ -1,5 +1,6 @@
 #include "includes/libasm.h"
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
 
@@ -21,14 +22,14 @@ int main(void)
            ft_strcmp(str, cpy));
 
     // read/write
-    char buf[10];
-    memset(buf, 0, 10);
+    char buf[10] = {0};
     ft_read(0, buf, 10);
     ft_write(1, buf, ft_strlen(buf));
 
     // strdup
     char *dup = ft_strdup(str);
     printf("dup: %s\n", dup);
+    free(dup);
 
     return (0);
 }

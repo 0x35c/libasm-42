@@ -2,9 +2,9 @@
 ;-----------------------------------------------------------------------
 ; x86_64	rax		rax	 	 rdi	rsi		rdx		r10		r8		r9
 
-global ft_strcmp:function
+global _ft_strcmp
 
-ft_strcmp: ; int ft_strcmp(const char *s1, const char *s2)
+_ft_strcmp: ; int _ft_strcmp(const char *s1, const char *s2)
 	xor		rcx, rcx
 .LOOP:
 	mov		dl, byte [rsi + rcx]
