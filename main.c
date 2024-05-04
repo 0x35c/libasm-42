@@ -28,6 +28,8 @@ int main(void)
            ft_strcmp(str, cpy1));
     printf("str: %s - cpy1: %s - strcmp(str, cpy1): %d\n", str, cpy1,
            strcmp(str, cpy1));
+    printf("ft_strcmp("", ""): %d\n", ft_strcmp("", ""));
+    printf("strcmp("", ""): %d\n", strcmp("", ""));
 
     // read/write
     printf("---------- READ/WRITE ----------\n");
